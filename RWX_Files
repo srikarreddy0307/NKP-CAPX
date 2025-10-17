@@ -1,0 +1,70 @@
+#create Nutanix Files
+# create a API User
+#create a secret
+-------------------
+pc-files-secret.yaml
+------------------
+apiVersion: v1
+kind: Secret
+metadata:
+ name: pc-files-secret
+ namespace: ntnx-system
+stringData:
+# Provide Nutanix File Server credentials which is a REST API user created on File server UI separated by colon in "files-key:".
+  key: "10.48.53.243:9440:admin:Nutanix@2025"
+  files-key: "10.161.73.7:filesadmin:Nutanix/4all!"
+----------------------------------------------------------
+
+#create a storage class
+------------------------------
+nfs-pc-sc.yaml
+-----------------------------
+allowVolumeExpansion: true
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+    name: nfs-pc-sc
+provisioner: csi.nutanix.com
+parameters:
+    csi.storage.k8s.io/node-publish-secret-name: pc-files-secret
+    csi.storage.k8s.io/node-publish-secret-namespace: ntnx-system
+    csi.storage.k8s.io/controller-expand-secret-name: pc-files-secret
+    csi.storage.k8s.io/controller-expand-secret-namespace: ntnx-system
+    dynamicProv: ENABLED
+    nfsServer: 10.161.73.7
+    nfsServerName: fileseast
+    csi.storage.k8s.io/provisioner-secret-name: pc-files-secret
+    csi.storage.k8s.io/provisioner-secret-namespace: ntnx-system
+    storageType: NutanixFiles
+    squashType: root-squash
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+
+
+#create PVC
+------------------------------
+pvc.yaml
+------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rwx-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-pc-sc
+  resources:
+    requests:
+      storage: 10Gi
+
+
+
+
+
+#apply all the files
+#verify the secrets, storage classes, pvc's
+
+# commands
+kubectl get sc
+kubectl get secrets -A | grep pc-files
+kubectl get pvc
