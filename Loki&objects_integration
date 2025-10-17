@@ -1,0 +1,97 @@
+# create the buckets in the NKP Objects with the versioning enabled
+# create the access keys and secret keys and give permission to the bucket 
+#create the objects secret 
+	export AWS_ID=<<Nutanix Objects access key id>>
+	export AWS_SECRET=<<Nutanix Objects secret access key>>
+	export KUBECONFIG=${CLUSTER_NAME}.conf
+	kubectl create secret generic ${CLUSTER_NAME}-loki-obj-creds -n $NAMESPACE --from-literal=AWS_ACCESS_KEY_ID=${AWS_ID} --from-literal=AWS_SECRET_ACCESS_KEY=${AWS_SECRET}
+
+# Launch the UI and paste the below yaml file in the LOKI application 
+    loki:
+      annotations:
+        secret.reloader.stakater.com/reload: <<cluster name>>-loki-obj-creds
+      structuredConfig:
+        storage_config:
+          aws:
+            s3: https://<<Object store's public IP>>:443/<<bucket name>>
+			region: us-east-1
+			s3forcepathstyle: true
+			insecure: true
+    ingester:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds 
+    querier:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds
+    queryFrontend:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds 
+    compactor:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds  
+    ruler:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds 
+    distributor:
+      extraEnvFrom:
+        - secretRef:
+            name: <<cluster name>>-loki-obj-creds
+
+
+#once the command is pasted wait for few minutes and check the bucket in nutanix objects and check loki pods running or not
+
+
+#Alternative approach:
+loki:
+  annotations:
+    secret.reloader.stakater.com/reload: nkp-mgmt-loki-obj-creds
+  structuredConfig:
+    storage_config:
+      aws:
+        s3: http://190.170.30.62:80/nkp-bucket
+        region: us-east-1
+        s3forcepathstyle: true
+        access_key_id: Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq
+        secret_access_key: 7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf
+  ingester:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+  querier:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+  queryFrontend:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+  compactor:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+  ruler:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+  distributor:
+    extraEnv:
+      - name: AWS_ACCESS_KEY_ID
+        value: "Ydh-bvejbQ3g_Tcr-0mcw5P-m8bqdvUq"
+      - name: AWS_SECRET_ACCESS_KEY
+        value: "7nx24b_2m1xp5a_4KRLoA7tYMGQfokNf"
+
