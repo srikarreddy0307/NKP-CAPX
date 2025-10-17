@@ -1,1 +1,14 @@
+#create a objects bucket, secrets with user permissions 
+#enable the cloud native PG in the nkp dashboard 
+#enable harbor
+#give the bucket credentials with access key, secret key, bucket name, URL 
+#check the pods
+kubectl get pods -n ncr-system
+
+#retrieve the harbor credentials
+kubectl get secrets -n ncr-system harbor-admin-password -o jsonpath='{.data.HARBOR_ADMIN_PASSWORD}' | base64 -d
+
+#launch the harbor dashboard from the nkp dashboard 
+user: admin
+password: above generated secret
 
