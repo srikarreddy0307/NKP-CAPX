@@ -69,6 +69,11 @@ velero create schedule <backup-schedule-name> -n ${WORKSPACE_NAMESPACE} --kubeco
 #commands
 velero get schedules
 velero delete schedule velero-default
+velero get schedules
+velero get backups
+velero get restores
+velero get backup-locations
+velero get snapshot-locations
 
 #delete namespace or deployment
 kubectl delete ns velero-test
