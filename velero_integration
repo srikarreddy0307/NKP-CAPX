@@ -45,3 +45,4 @@ spec:
 ----------------------------------------------
 
 check velero pods in kommander namespace 
+kubectl get deployment velero -n kommander -o jsonpath='{.spec.template.spec.containers[0].image}{"\n"}' --kubeconfig nkp-mgmt-kubeconfig.conf
