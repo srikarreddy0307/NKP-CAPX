@@ -1,1 +1,80 @@
+velero backup-location get
+#create a namespace 
+-----------------
+velero-testns.yaml
+-----------------
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: velero-test
+-------------------
+kubectl create -f velero-testns.yaml
+
+#create a sample application deployment 
+-----------------------------
+nginix-deployment.yaml
+------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: velero-test
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: velero-test
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+------------------------------------------
+kubectl apply -f nginix-deployment.yaml
+
+
+#create backup
+velero backup create nginx-backup --include-namespaces velero-test
+
+#create backup scheduled
+You can create a backup schedule by running the following command:
+velero create schedule <backup-schedule-name> -n ${WORKSPACE_NAMESPACE} --kubeconfig=${UI_CLUSTER_NAME}.conf --snapshot-volumes=false --schedule="@every 8h"
+
+#backup of specific namespace
+velero create schedule <backup-schedule-name> -n ${WORKSPACE_NAMESPACE} --kubeconfig=${UI_CLUSTER_NAME}.conf --include-namespaces=kube-system,kube-public,Kommander 
+--snapshot-volumes=false --schedule="@every 24h"
+
+#commands
+velero get schedules
+velero delete schedule velero-default
+
+#delete namespace or deployment
+kubectl delete ns velero-test
+
+#restoring namespace from backup
+ velero restore create nginx-restore --from-backup nginx-backup -n kommander
+
+
 
