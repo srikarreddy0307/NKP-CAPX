@@ -1,1 +1,47 @@
+#create a objects bucket and get the secret key and acess key with permission assigned to objects
+#create a object secret 
+-------------------------------
+velero-obj-creds.yaml
+-------------------------------
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dkp-velero
+  namespace: <<NKP cluster's NKP workspace>>  
+type: Opaque
+stringData:
+  aws: |
+    [<<bucket name>>]
+    aws_access_key_id = <<NKP object access key>>
+    aws_secret_access_key = <<NKP object secret access key>>
+-----------------------------------------------------------
+kubectl apply -f velero-obj-creds.yaml
 
+#enable the velero on the nkp dashboard page 
+
+#create backup storage location
+-------------------------------------
+velero-bsl.yaml
+------------------------------------
+apiVersion: velero.io/v1
+kind: BackupStorageLocation
+metadata:
+  name: <<bucket name>>
+  namespace: <<NKP cluster's NKP workspace>>
+spec:
+  config:
+    insecureSkipTLSVerify: "true"
+    region: us-east-1
+    profile: <<bucket name>>
+    s3ForcePathStyle: "true"
+    s3Url: https://<<Object store's public IP>>:443
+  objectStorage:
+    bucket: <<bucket name>>
+  provider: aws
+  default: true
+  credential:
+    key: aws
+    name: dkp-velero
+----------------------------------------------
+
+check velero pods in kommander namespace 
