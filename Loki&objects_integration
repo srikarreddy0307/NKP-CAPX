@@ -1,5 +1,7 @@
 # create the buckets in the NKP Objects with the versioning enabled
 # create the access keys and secret keys and give permission to the bucket 
+# enable the fluentbit and logging operator enabled 
+# ensure rook ceph and rookceph cluster disabled
 #create the objects secret 
 	export AWS_ID=<<Nutanix Objects access key id>>
 	export AWS_SECRET=<<Nutanix Objects secret access key>>
