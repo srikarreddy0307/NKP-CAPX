@@ -1,0 +1,13 @@
+Create Operating System image for one of [nutanix]
+
+Usage:
+  nkp create image [command]
+
+Available Commands:
+  nutanix     Create Nutanix Machine Image for one of [rhel-8.10, rocky-9.6, ubuntu-22.04]
+
+Flags:
+  -h, --help          Help for image
+  -v, --verbose int   Output verbosity
+
+Use "nkp create image [command] --help" for more information about a command.

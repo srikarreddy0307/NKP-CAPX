@@ -1,0 +1,70 @@
+Create a Konvoy cluster in vSphere
+
+Usage:
+  nkp create cluster vsphere [flags]
+
+Flags:
+      --allow-missing-template-keys                     If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --aws-service-endpoints string                    Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
+      --bootstrap-cluster-image string                  Container image used to create the bootstrap cluster. Can be an image name or path to a filee.g. ./nkp-v2.16.0/konvoy-bootstrap-image-v2.16.0.tar. If not provided, the default image will be used (default "docker.io/mesosphere/konvoy-bootstrap:v2.16.0")
+  -c, --cluster-name name                               Name used to prefix the cluster and all the created resources.
+      --control-plane-cpus int                          The number of virtual processors in a control plane machine (default 4)
+      --control-plane-disk-size int                     The size of a control plane machine's disk, in GB (default 80)
+      --control-plane-endpoint-host string              The control plane endpoint address. To use an external load balancer, set to its IP or hostname. To use the built-in virtual IP, set to a static IPv4 address in the Layer 2 network of the control plane machines. [Not for production use: To use a single-machine control plane, set to the IP or hostname of the machine.]
+      --control-plane-endpoint-port int32               The control plane endpoint port. To use an external load balancer, set to its listening port. (default 6443)
+      --control-plane-http-proxy string                 HTTP proxy for control plane machines
+      --control-plane-https-proxy string                HTTPS proxy for control plane machines
+      --control-plane-memory int                        The size of a control plane machine's memory, in GB (default 16)
+      --control-plane-no-proxy strings                  No Proxy list for control plane machines (default [])
+      --control-plane-renew-certificates-before int32   Enables automated control-plane certificates renewal. Provide the number of days between 7 and 360 when to trigger the certificate renewal. The renewal process will trigger new control-plane Machines to be created. A value of 0 disables the feature. (default 180)
+      --control-plane-replicas int32                    Number of control plane nodes (default 3)
+      --data-center string                              The vSphere datacenter to deploy the workload cluster on.
+      --data-store string                               The vSphere datastore to deploy the workload cluster on.
+      --dry-run                                         Only print the objects that would be created, without creating them.
+      --etcd-image-repository string                    The image repository to use for pulling the etcd image
+      --etcd-version string                             The version of etcd to use.
+      --extra-sans strings                              A comma separated list of additional Subject Alternative Names for the API Server signing cert (default [])
+      --folder string                                   The vSphere folder for your VMs. Set to "" to use the root vSphere folder.
+  -h, --help                                            Help for vsphere
+      --http-proxy string                               HTTP proxy for CAPI controllers
+      --https-proxy string                              HTTPS proxy for CAPI controllers
+      --kubeconfig string                               Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply. This flag is ignored if used with the --self-managed flag.
+      --kubernetes-image-repository string              The image repository to use for pulling kubernetes images
+      --kubernetes-pod-network-cidr cidr                The Kubernetes Pod network CIDR to use in the cluster (default 192.168.0.0/16)
+      --kubernetes-service-cidr cidr                    The Kubernetes Service CIDR to use in the cluster (default 10.96.0.0/12)
+      --kubernetes-version string                       Kubernetes version (default "1.33.2")
+  -n, --namespace string                                If present, the namespace scope for this CLI request. (default "default")
+      --network string                                  The vSphere network to deploy the workload cluster on.
+      --no-proxy strings                                No Proxy list for CAPI controllers (default [])
+      --os-hint flatcar                                 A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.
+  -o, --output string                                   Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string                         Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --registry-mirror-cacert file                     Path to file containing the CA certificate used to verify the registry mirror server certificate
+      --registry-mirror-password string                 Password used to authenticate with the registry mirror
+      --registry-mirror-url url                         URL of a container registry used as a mirror (required for air-gapped installations)
+      --registry-mirror-username string                 Username used to authenticate with the registry mirror
+      --resource-pool string                            The vSphere resource pool for the workload cluster's virtual machines.
+      --self-managed                                    When set to true, the required prerequisites are created before creating the cluster and the resulting cluster has all necessary components deployed onto itself, so it can manage its own cluster lifecycle. When set to false, a management cluster is used. (default false)
+      --server string                                   The vCenter server address. Accepted formats: host, host:port, http[s]://host[:port]. Accepted host formats: IPv4, IPv6, or DNS name.
+      --show-managed-fields                             If true, keep the managedFields when printing objects in JSON or YAML format.
+      --ssh-public-key-file string                      Path to the authorized SSH key for the user
+      --ssh-username string                             Name of the user to create on the instance (default "konvoy")
+      --storage-policy string                           This is the vSphere storage policy. Set it to "" if you don't want to use a storage policy.
+      --template string                                 Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration                                The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --tls-thumb-print string                          sha1 thumbprint of the vcenter certificate: openssl x509 -sha1 -fingerprint -in ca.crt -noout
+      --virtual-ip-interface string                     The network interface, e.g, 'eth0' or 'ens5', to use for the built-in virtual IP control plane endpoint. This interface must be available on every control plane machine. If the value is empty, the flag does nothing. If the value is not empty, the built-in virtual IP control plane endpoint is created, using values from --control-plane-endpoint-host and --control-plane-endpoint-port.
+      --vm-template string                              The virtual machine template to use for the workload cluster's virtual machines.
+      --wait                                            If true, wait for operations to complete before returning. This flag is ignored and will always be 'true' if used with the --self-managed flag. (default true)
+      --with-aws-bootstrap-credentials                  Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials                  Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.
+      --worker-cpus int                                 The number of virtual processors in a worker machine (default 8)
+      --worker-disk-size int                            The size of a worker machine's disk, in GB (default 80)
+      --worker-http-proxy string                        HTTP proxy for nodes
+      --worker-https-proxy string                       HTTPS proxy for nodes
+      --worker-memory int                               The size of a worker machine's memory, in GB (default 32)
+      --worker-no-proxy strings                         No Proxy list for nodes (default [])
+      --worker-replicas int32                           Number of workers (default 4)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

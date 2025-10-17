@@ -1,0 +1,15 @@
+Check a cluster, one of [fips]
+
+Usage:
+  nkp check cluster [command]
+
+Available Commands:
+  fips        Validate the components in your cluster are FIPS compliant
+
+Flags:
+  -h, --help   Help for cluster
+
+Global Flags:
+  -v, --verbose int   Output verbosity
+
+Use "nkp check cluster [command] --help" for more information about a command.

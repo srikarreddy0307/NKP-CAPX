@@ -1,0 +1,22 @@
+Update a Kubernetes cluster control plane, one of [aks, aws, azure, eks, gcp, nutanix, preprovisioned, vsphere]
+
+Usage:
+  nkp update controlplane [command]
+
+Available Commands:
+  aks            Update a Kubernetes cluster control plane in AKS
+  aws            Update a Kubernetes cluster control plane in AWS
+  azure          Update a Kubernetes cluster control plane in Azure
+  eks            Update a Kubernetes cluster control plane in EKS
+  gcp            Update a Kubernetes cluster control plane in GCP
+  nutanix        Update a Kubernetes cluster control plane in Nutanix
+  preprovisioned Update a Kubernetes cluster control plane in Preprovisioned
+  vsphere        Update a Kubernetes cluster control plane in vSphere
+
+Flags:
+  -h, --help   Help for controlplane
+
+Global Flags:
+  -v, --verbose int   Output verbosity
+
+Use "nkp update controlplane [command] --help" for more information about a command.

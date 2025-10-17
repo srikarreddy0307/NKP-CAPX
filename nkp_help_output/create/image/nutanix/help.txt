@@ -1,0 +1,31 @@
+Create Nutanix Machine Image for one of [rhel-8.10, rocky-9.6, ubuntu-22.04]
+
+Usage:
+  nkp create image nutanix OSName [flags]
+
+Flags:
+      --artifacts-directory string      Path to a directory containing the artifacts needed to build the OS image. Useful in an air-gapped environment
+      --bastion-host string             IP or hostname for bastion
+      --bastion-port int                SSH port of the bastion host (default 22)
+      --bastion-private-key-file file   Path to a PEM encoded private key file to use to authenticate with the bastion host
+      --bastion-username string         The username to connect to the bastion host
+      --bundle fileSlice                Path to a container image bundle tarball to load in the OS image. Multiple bundles can be provided with a comma separated list. File must be a '.tar' format. Useful in an air-gapped environment (default [])
+      --cluster string                  Name of the Nutanix cluster.
+      --debug                           Run packer in debug mode. user will be prompted after each step while building the image.
+      --dry-run                         Do not create artifacts, or delete them after creating. Recommended for tests.
+      --endpoint string                 Host URL or IP for the Nutanix Prism Central instance.
+      --extra-build-name string         Additional name to add in the OS image name
+      --fips                            Enable FIPS support
+      --gpu-name string                 Assigns a GPU that is present on cluster-name on the temporary VM.
+  -h, --help                            Help for nutanix
+      --insecure                        Connect with Prism without verifying CA certificates.
+      --kubernetes-version string       kubernetes version used to build packages (default "1.33.2")
+      --overrides fileSlice             A comma separated list of override YAML files. (default [])
+      --port int                        Port for the Nutanix Prism Central instance. (default 9440)
+      --source-image string             Base Image name or UUID used as a disk source. If the image name is not provided then upstream base image for the OS will be downloaded.
+      --subnet string                   Nutanix subnet name or UUID to use with the virtual machine.
+      --vgpu-runfile file               Local path to runfile for vGPU driver.
+      --work-directory string           Path to a directory to use as a workspace to build the OS image. The directory must already exist.
+
+Global Flags:
+  -v, --verbose int   Output verbosity

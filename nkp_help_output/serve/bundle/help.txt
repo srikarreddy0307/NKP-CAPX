@@ -1,0 +1,16 @@
+Serve an OCI registry from previously created bundles
+
+Usage:
+  nkp serve bundle [flags]
+
+Flags:
+      --bundle strings                Bundle to serve. Can also be a glob pattern. (default [])
+  -h, --help                          Help for bundle
+      --listen-address string         Address to listen on (default "127.0.0.1")
+      --listen-port uint16            Port to listen on (0 means use any free port)
+      --repositories-prefix string    Prefix to prepend to all repositories in the bundle when serving
+      --tls-cert-file string          TLS certificate file
+      --tls-private-key-file string   TLS private key file
+
+Global Flags:
+  -v, --verbose int   Output verbosity

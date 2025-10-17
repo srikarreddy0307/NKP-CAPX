@@ -1,0 +1,16 @@
+Bundle up the catalog application(s) including container images & any OCI artifacts
+
+Usage:
+  nkp create catalog-bundle [flags]
+
+Flags:
+      --airgapped                    Create an airgapped bundle that includes container images and OCI artifacts
+      --apps strings                 Applications to include (name=version). Accepts comma-separated values or can be repeated
+      --collection-tag string        Tag to assign to the catalog collection. Required when bundling multiple applications.
+      --constraint strings           Constraints to filter the applications that are selected (e.g., nkpVersion=2.16)
+  -h, --help                         Help for catalog-bundle
+      --image-pull-concurrency int   Image pull concurrency (default 1)
+  -o, --output-file string           Path to the output file for the generated bundle
+      --platform platformSlice       platforms to download images for (required format: <os>/<arch>[/<variant>]) (default [linux/amd64])
+      --repo-dir string              Path to the catalog repository in which to generate the files. (default to current working directory)
+  -v, --verbose int                  Output verbosity

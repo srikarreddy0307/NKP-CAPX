@@ -1,0 +1,16 @@
+Move controllers and objects from one cluster to the other
+
+Usage:
+  nkp move capi-resources [flags]
+
+Flags:
+      --from-context string    Context to be used within the from-cluster's kubeconfig file. If empty, current context will be used.
+      --from-kubeconfig file   Path to the kubeconfig for pivot's source cluster. If unspecified, default discovery rules apply.
+  -h, --help                   Help for capi-resources
+  -n, --namespace string       If present, the namespace scope for this CLI request. (default "default")
+      --to-context string      Context to be used within the to-cluster's kubeconfig file. If empty, current context will be used.
+      --to-kubeconfig file     Path to the kubeconfig for pivot's destination cluster
+      --to-namespace string    Resources are moved to this namespace in the to-cluster. By default, the same as the from-cluster namespace.
+
+Global Flags:
+  -v, --verbose int   Output verbosity

@@ -1,0 +1,22 @@
+Update a Kubernetes cluster control plane in vSphere
+
+Usage:
+  nkp update controlplane vsphere [flags]
+
+Flags:
+  -c, --cluster-name name                               Name used to prefix the cluster and all the created resources.
+      --control-plane-renew-certificates-before int32   Enables automated control-plane certificates renewal. Provide the number of days between 7 and 360 when to trigger the certificate renewal. The renewal process will trigger new control-plane Machines to be created. A value of 0 disables the feature.
+      --cpus int                                        The number of virtual processors in a virtual machine.
+      --disk-size int                                   The size of a virtual machine's disk, in GB.
+  -h, --help                                            Help for vsphere
+      --kubeconfig string                               Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --kubernetes-version string                       Kubernetes version
+      --memory int                                      The size of a virtual machine's memory, in GB.
+  -n, --namespace string                                If present, the namespace scope for this CLI request. (default "default")
+      --timeout duration                                The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --use-context string                              Use a specific context in a kubeconfig file.
+      --vm-template string                              The virtual machine template to use for a virtual machine.
+      --wait                                            If true, wait for operations to complete before returning. (default true)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

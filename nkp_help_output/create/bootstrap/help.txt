@@ -1,0 +1,19 @@
+Create bootstrap cluster
+
+Usage:
+  nkp create bootstrap [flags]
+
+Flags:
+      --aws-service-endpoints string     Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
+      --bootstrap-cluster-image string   Container image used to create the bootstrap cluster. Can be an image name or path to a filee.g. ./nkp-v2.16.0/konvoy-bootstrap-image-v2.16.0.tar. If not provided, the default image will be used (default "docker.io/mesosphere/konvoy-bootstrap:v2.16.0")
+      --bundle files                     A comma separated list of bundle artifacts that will be pushed to an in-cluster registry. Supports glob pattern to match multiple artifacts (e.g. ./bundles/*.tar). Following artifacts must be provided: konvoy-image-bundle-v2.16.0.tar, kommander-image-bundle-v2.16.0.tar (default [])
+  -h, --help                             Help for bootstrap
+      --http-proxy string                HTTP proxy for CAPI controllers
+      --https-proxy string               HTTPS proxy for CAPI controllers
+      --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --no-proxy strings                 No Proxy list for CAPI controllers (default [])
+      --timeout duration                 The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 20m0s)
+  -v, --verbose int                      Output verbosity
+      --wait                             If true, wait for operations to complete before returning. (default true)
+      --with-aws-bootstrap-credentials   Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials   Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.

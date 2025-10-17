@@ -1,0 +1,19 @@
+Upgrade the core Addons in a Preprovisioned cluster
+
+Usage:
+  nkp upgrade addons preprovisioned [flags]
+
+Flags:
+      --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -c, --cluster-name name             Name used to prefix the cluster and all the created resources.
+      --dry-run                       Only print the objects that would be created, without creating them.
+  -h, --help                          Help for preprovisioned
+      --kubeconfig string             Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+  -n, --namespace string              If present, the namespace scope for this CLI request. (default "default")
+  -o, --output string                 Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string       Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+
+Global Flags:
+  -v, --verbose int   Output verbosity

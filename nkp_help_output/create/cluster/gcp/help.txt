@@ -1,0 +1,63 @@
+Create a Konvoy cluster in GCP
+
+Usage:
+  nkp create cluster gcp [flags]
+
+Flags:
+      --additional-tags stringToString                  Tags to apply to the provisioned infrastructure (default [])
+      --allow-missing-template-keys                     If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --associate-public-ip-address                     Associate a public IP for all machines. When set to false the specified network must have Cloud NAT configured to provide internet access. (default true)
+      --aws-service-endpoints string                    Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
+      --bootstrap-cluster-image string                  Container image used to create the bootstrap cluster. Can be an image name or path to a filee.g. ./nkp-v2.16.0/konvoy-bootstrap-image-v2.16.0.tar. If not provided, the default image will be used (default "docker.io/mesosphere/konvoy-bootstrap:v2.16.0")
+  -c, --cluster-name name                               Name used to prefix the cluster and all the created resources.
+      --control-plane-http-proxy string                 HTTP proxy for control plane machines
+      --control-plane-https-proxy string                HTTPS proxy for control plane machines
+      --control-plane-instance-type string              Control Plane machine instance type (default "n2-standard-4")
+      --control-plane-no-proxy strings                  No Proxy list for control plane machines (default [])
+      --control-plane-renew-certificates-before int32   Enables automated control-plane certificates renewal. Provide the number of days between 7 and 360 when to trigger the certificate renewal. The renewal process will trigger new control-plane Machines to be created. A value of 0 disables the feature. (default 180)
+      --control-plane-replicas int32                    Number of control plane nodes (default 3)
+      --control-plane-service-account-email string      Control Plane Service Account email address (default "default")
+      --dry-run                                         Only print the objects that would be created, without creating them.
+      --etcd-image-repository string                    The image repository to use for pulling the etcd image
+      --etcd-version string                             The version of etcd to use.
+      --extra-sans strings                              A comma separated list of additional Subject Alternative Names for the API Server signing cert (default [])
+  -h, --help                                            Help for gcp
+      --http-proxy string                               HTTP proxy for CAPI controllers
+      --https-proxy string                              HTTPS proxy for CAPI controllers
+      --image string                                    Full reference to an image to use for all nodes (set either this or --image-family) (ex. 'projects/my-project/global/images/konvoy-ubuntu-2204-1-99-99-1234567890')
+      --image-family string                             Full reference to an image family to use for all nodes (set either this or --image) (ex. 'projects/my-project/global/images/family/konvoy-ubuntu-2204-{{.K8sVersion}}')
+      --kubeconfig string                               Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply. This flag is ignored if used with the --self-managed flag.
+      --kubernetes-image-repository string              The image repository to use for pulling kubernetes images
+      --kubernetes-pod-network-cidr cidr                The Kubernetes Pod network CIDR to use in the cluster (default 192.168.0.0/16)
+      --kubernetes-service-cidr cidr                    The Kubernetes Service CIDR to use in the cluster (default 10.96.0.0/12)
+      --kubernetes-version string                       Kubernetes version (default "1.33.2")
+  -n, --namespace string                                If present, the namespace scope for this CLI request. (default "default")
+      --network string                                  The GCP network name to deploy the cluster to (default "default")
+      --no-proxy strings                                No Proxy list for CAPI controllers (default [])
+  -o, --output string                                   Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string                         Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --project string                                  The GCP project name to deploy the cluster to
+      --region string                                   GCP region to deploy cluster to (default "us-west1")
+      --registry-mirror-cacert file                     Path to file containing the CA certificate used to verify the registry mirror server certificate
+      --registry-mirror-password string                 Password used to authenticate with the registry mirror
+      --registry-mirror-url url                         URL of a container registry used as a mirror (required for air-gapped installations)
+      --registry-mirror-username string                 Username used to authenticate with the registry mirror
+      --self-managed                                    When set to true, the required prerequisites are created before creating the cluster and the resulting cluster has all necessary components deployed onto itself, so it can manage its own cluster lifecycle. When set to false, a management cluster is used. (default false)
+      --show-managed-fields                             If true, keep the managedFields when printing objects in JSON or YAML format.
+      --ssh-public-key-file string                      Path to the authorized SSH key for the user
+      --ssh-username string                             Name of the user to create on the instance (default "konvoy")
+      --template string                                 Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration                                The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --wait                                            If true, wait for operations to complete before returning. This flag is ignored and will always be 'true' if used with the --self-managed flag. (default true)
+      --with-aws-bootstrap-credentials                  Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials                  Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.
+      --worker-http-proxy string                        HTTP proxy for nodes
+      --worker-https-proxy string                       HTTPS proxy for nodes
+      --worker-instance-type string                     Worker machine instance type (default "n2-standard-8")
+      --worker-no-proxy strings                         No Proxy list for nodes (default [])
+      --worker-replicas int32                           Number of workers (default 4)
+      --worker-service-account-email string             Worker machine Service Account email address (default "default")
+      --worker-zone string                              Zone in the region to deploy the worker nodes to, if not set a random one will be selected (ex. us-west1-a)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

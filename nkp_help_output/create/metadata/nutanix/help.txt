@@ -1,0 +1,20 @@
+Creates nutanix metadata
+
+Usage:
+  nkp create metadata nutanix [flags]
+
+Flags:
+      --additional-trust-bundle string   Additional CA trust bundle to use to validate the Prism Central server certificate.
+      --allow-missing-template-keys      If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+      --dry-run                          Only print the objects that would be created, without creating them.
+      --endpoint url                     Prism Central URL. Accepted formats: host, host:port, http[s]://host[:port]. Accepted host formats: IP, FQDN.
+  -h, --help                             Help for nutanix
+      --insecure                         If true, the Prism Central server certificate will not be validated.
+      --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+  -o, --output string                    Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string          Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --show-managed-fields              If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string                  Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+
+Global Flags:
+  -v, --verbose int   Output verbosity

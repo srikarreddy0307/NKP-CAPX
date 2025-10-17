@@ -1,0 +1,20 @@
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster
+
+Usage:
+  nkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
+
+Flags:
+      --config string                    Config file to use (default "/home/runner/.kommander/config")
+      --context string                   The name of the kubeconfig context to use
+      --core-app-timeout duration        Timeout to wait for upgrade of each kommander core application (default 20m0s)
+      --disable-appdeployments strings   List of AppDeployments to be disabled during upgrade (default [centralized-kubecost,kubecost-thanos-traefik])
+      --dry-run                          Do not upgrade, just list the AppDeployments that would be upgraded
+  -h, --help                             Help for workspace
+      --kubeconfig string                Path to the kubeconfig file to use for CLI requests.
+      --platform-apps-timeout duration   Timeout to wait for upgrade of the set of platform applications (default 30m0s)
+      --registry-cacert file             Path to file containing the CA certificate used to verify the registry server certificate
+      --registry-password string         Password used to authenticate with the registry
+      --registry-url url                 URL of a container registry
+      --registry-username string         Username used to authenticate with the registry
+      --request-timeout string           The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
+  -v, --verbose int                      Output verbosity

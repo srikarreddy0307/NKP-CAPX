@@ -1,0 +1,39 @@
+Create a nodepool in Nutanix.
+
+NAME must
+  - have no more than 63 characters
+  - consist of lower case alphanumeric characters, '-', or '.'
+  - must start and end with an alphanumeric character
+
+Usage:
+  nkp create nodepool nutanix NAME [flags]
+
+Flags:
+      --allow-missing-template-keys    If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -c, --cluster-name name              Name used to prefix the cluster and all the created resources.
+      --cores-per-vcpu int32           The number of cores per vCPU(equivalent to CPU cores) to use in a worker machine (default 1)
+      --disk-size int32                The size of the primary disk (in GiB) of a worker machine (default 80)
+      --dry-run                        Only print the objects that would be created, without creating them.
+      --gpu-count int32                Number of GPUs per VM in the nodepool. (default 1)
+      --gpu-name string                Name of the GPU resource. Can be either vGPU profile or name of passthrough GPU.
+  -h, --help                           Help for nutanix
+      --kubeconfig string              Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --kubernetes-version string      Kubernetes version (default "1.33.2")
+      --memory int32                   The size of memory (in GiB) of a worker machine (default 32)
+  -n, --namespace string               If present, the namespace scope for this CLI request. (default "default")
+  -o, --output string                  Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string        Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --pc-categories strings          Names of Prism Central categories to associate with worker resources (VMs, VGs, etc). Example: key1=value1,key1=value2,key2=value2 (default [])
+      --pc-project string              Name of Prism Central project to associate with worker resources (VMs, VGs, etc).
+      --prism-element-cluster string   Name of the Prism Element cluster to use to create a worker machine
+      --replicas int32                 Number of replicas (default 1)
+      --show-managed-fields            If true, keep the managedFields when printing objects in JSON or YAML format.
+      --subnets strings                Names of Prism Central subnets to use for worker machines. Example: subnet1,subnet2,subnet3 (default [])
+      --template string                Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration               The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --vcpus int32                    The number of vCPUs(equivalent to CPU sockets) to use in a worker machine (default 8)
+      --vm-image string                Name of OS image to use for worker machines.
+      --wait                           If true, wait for operations to complete before returning.
+
+Global Flags:
+  -v, --verbose int   Output verbosity

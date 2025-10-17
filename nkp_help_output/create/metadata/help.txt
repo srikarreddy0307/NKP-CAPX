@@ -1,0 +1,13 @@
+Create a infrastructure metadata, one of [nutanix]
+
+Usage:
+  nkp create metadata [command]
+
+Available Commands:
+  nutanix     Creates nutanix metadata
+
+Flags:
+  -h, --help          Help for metadata
+  -v, --verbose int   Output verbosity
+
+Use "nkp create metadata [command] --help" for more information about a command.

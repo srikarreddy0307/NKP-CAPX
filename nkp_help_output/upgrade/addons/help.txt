@@ -1,0 +1,18 @@
+Upgrade the core Addons in a cluster, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
+
+Usage:
+  nkp upgrade addons [command]
+
+Available Commands:
+  aws            Upgrade the core Addons in a AWS cluster
+  azure          Upgrade the core Addons in a Azure cluster
+  eks            Upgrade the core Addons in a EKS cluster
+  gcp            Upgrade the core Addons in a GCP cluster
+  preprovisioned Upgrade the core Addons in a Preprovisioned cluster
+  vsphere        Upgrade the core Addons in a vSphere cluster
+
+Flags:
+  -h, --help          Help for addons
+  -v, --verbose int   Output verbosity
+
+Use "nkp upgrade addons [command] --help" for more information about a command.

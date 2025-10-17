@@ -1,0 +1,13 @@
+Upgrade a Kubernetes cluster's version to 1.33.2, one of [nutanix]
+
+Usage:
+  nkp upgrade cluster [command]
+
+Available Commands:
+  nutanix     Upgrade a Kubernetes cluster's version to 1.33.2 in Nutanix
+
+Flags:
+  -h, --help          Help for cluster
+  -v, --verbose int   Output verbosity
+
+Use "nkp upgrade cluster [command] --help" for more information about a command.

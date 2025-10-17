@@ -1,0 +1,21 @@
+Attach a cluster
+
+Usage:
+  nkp attach cluster -n NAME --attached-kubeconfig FILENAME [flags]
+
+Flags:
+      --attached-kubeconfig string   Path of the kubeconfig file of the cluster to be attached
+  -h, --help                         Help for cluster
+  -n, --name string                  Desired name of the attached cluster
+      --registry-cacert file         Path to file containing the CA certificate used to verify the registry server certificate
+      --registry-password string     Password used to authenticate with the registry
+      --registry-url url             URL of a container registry
+      --registry-username string     Username used to authenticate with the registry
+  -w, --workspace string             Name of the workspace of the attached cluster
+
+Global Flags:
+      --config string            Config file to use (default "/home/runner/.kommander/config")
+      --context string           The name of the kubeconfig context to use
+      --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
+      --request-timeout string   The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
+  -v, --verbose int              Output verbosity

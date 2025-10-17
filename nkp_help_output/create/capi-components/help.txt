@@ -1,0 +1,16 @@
+Create the CAPI components in the cluster
+
+Usage:
+  nkp create capi-components [flags]
+
+Flags:
+      --aws-service-endpoints string     Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
+  -h, --help                             Help for capi-components
+      --http-proxy string                HTTP proxy for CAPI controllers
+      --https-proxy string               HTTPS proxy for CAPI controllers
+      --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --no-proxy strings                 No Proxy list for CAPI controllers (default [])
+      --timeout duration                 The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 20m0s)
+  -v, --verbose int                      Output verbosity
+      --with-aws-bootstrap-credentials   Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials   Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.

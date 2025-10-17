@@ -1,0 +1,13 @@
+Collect node-level diagnostics data over SSH
+
+Usage:
+  nkp diagnose ssh path/to/inventory-file.yaml [flags]
+
+Flags:
+      --bundle-name-prefix string   Prefix added to support bundle name created
+  -h, --help                        Help for ssh
+      --redactors strings           Names of the additional redactors to use (default [])
+      --timeout duration            Timeout for collecting bundle per node (default 5m0s)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

@@ -1,0 +1,17 @@
+Detach a cluster
+
+Usage:
+  nkp detach cluster CLUSTER_NAME [flags]
+
+Flags:
+  -h, --help               Help for cluster
+      --timeout duration   The length of time to wait before giving up on a detach, defaults to wait forever (default 0s)
+      --wait               If true, wait for resources to be gone before returning. This waits for finalizers. (default true)
+  -w, --workspace string   Name of the workspace of the attached cluster
+
+Global Flags:
+      --config string            Config file to use (default "/home/runner/.kommander/config")
+      --context string           The name of the kubeconfig context to use
+      --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
+      --request-timeout string   The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
+  -v, --verbose int              Output verbosity

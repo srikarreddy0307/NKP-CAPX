@@ -1,0 +1,13 @@
+Generate the catalog repository layout and its contents
+
+Usage:
+  nkp generate catalog-repository [flags]
+
+Flags:
+      --apps strings      Apps to generate (name=version)
+  -h, --help              Help for catalog-repository
+      --overwrite         Overwrite existing application files
+      --repo-dir string   Path to the catalog repository in which to generate the files. (default to current working directory)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

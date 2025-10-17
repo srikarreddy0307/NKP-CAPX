@@ -1,0 +1,22 @@
+Update a Konvoy cluster node pool in AWS
+
+Usage:
+  nkp update nodepool aws [flags]
+
+Flags:
+      --ami string                  AMI ID to use for machines
+      --ami-base-os string          Base OS used in search of AMIs. Examples: 'ubuntu-22.04'
+      --ami-format string           Query string used in search of AMIs. Example: When --ami-base-os='rhel8.10', then the string 'prefix-{{.BaseOS}}-?{{.K8sVersion}}-*' matches any AMIs with the Name 'prefix-rhel8.10-1.33.2
+      --ami-owner string            ID of AWS account used in search of AMIs
+  -c, --cluster-name name           Name used to prefix the cluster and all the created resources.
+  -h, --help                        Help for aws
+      --instance-type string        Instance type to use for node pool machines
+      --kubeconfig string           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --kubernetes-version string   Kubernetes version
+  -n, --namespace string            If present, the namespace scope for this CLI request. (default "default")
+      --timeout duration            The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --use-context string          Use a specific context in a kubeconfig file.
+      --wait                        If true, wait for operations to complete before returning. (default true)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

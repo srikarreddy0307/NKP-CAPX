@@ -1,0 +1,13 @@
+Serve image or Helm chart bundles from an OCI registry
+
+Usage:
+  nkp serve [command]
+
+Available Commands:
+  bundle       Serve an OCI registry from previously created bundles
+
+Flags:
+  -h, --help          Help for serve
+  -v, --verbose int   Output verbosity
+
+Use "nkp serve [command] --help" for more information about a command.

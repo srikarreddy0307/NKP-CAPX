@@ -1,0 +1,17 @@
+Retrieve cluster kubeconfig and modify local kubeconfig file
+
+Usage:
+  nkp get kubeconfig [flags]
+
+Flags:
+  -A, --all-namespaces      If present, list the requested object(s) across all namespaces.
+      --cluster string      Kommander Cluster to get kubeconfig for
+  -c, --cluster-name name   Name used to prefix the cluster and all the created resources.
+  -h, --help                Help for kubeconfig
+      --kubeconfig string   Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+  -n, --namespace string    If present, the namespace scope for this CLI request. (default "default")
+  -o, --output string       Output format. One of: table|yaml
+  -w, --workspace string    Name of the workspace to show clusters from
+
+Global Flags:
+  -v, --verbose int   Output verbosity

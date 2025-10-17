@@ -1,0 +1,51 @@
+Create a nodepool in vSphere.
+
+NAME must
+  - have no more than 63 characters
+  - consist of lower case alphanumeric characters, '-', or '.'
+  - must start and end with an alphanumeric character
+
+Usage:
+  nkp create nodepool vsphere NAME [flags]
+
+Flags:
+      --additional-tags stringToString    Tags to apply to the provisioned infrastructure (default [])
+      --allow-missing-template-keys       If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -c, --cluster-name name                 Name used to prefix the cluster and all the created resources.
+      --cpus int                          The number of virtual processors in a worker machine (default 8)
+      --data-center string                The vSphere datacenter to deploy the workload cluster on.
+      --data-store string                 The vSphere datastore to deploy the workload cluster on.
+      --disk-size int                     The size of a worker machine's disk, in GB (default 80)
+      --dry-run                           Only print the objects that would be created, without creating them.
+      --folder string                     The vSphere folder for your VMs. Set to "" to use the root vSphere folder.
+  -h, --help                              Help for vsphere
+      --http-proxy string                 HTTP proxy for nodes
+      --https-proxy string                HTTPS proxy for nodes
+      --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+      --kubernetes-version string         Kubernetes version (default "1.33.2")
+      --memory int                        The size of a worker machine's memory, in GB (default 32)
+  -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
+      --network string                    The vSphere network to deploy the workload cluster on.
+      --no-proxy strings                  No Proxy list for nodes (default [])
+      --os-hint flatcar                   A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.
+  -o, --output string                     Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string           Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --registry-mirror-cacert file       Path to file containing the CA certificate used to verify the registry mirror server certificate
+      --registry-mirror-password string   Password used to authenticate with the registry mirror
+      --registry-mirror-url url           URL of a container registry used as a mirror (required for air-gapped installations)
+      --registry-mirror-username string   Username used to authenticate with the registry mirror
+      --replicas int32                    Number of replicas (default 1)
+      --resource-pool string              The vSphere resource pool for the workload cluster's virtual machines.
+      --server string                     The vCenter server address. Accepted formats: host, host:port, http[s]://host[:port]. Accepted host formats: IPv4, IPv6, or DNS name.
+      --show-managed-fields               If true, keep the managedFields when printing objects in JSON or YAML format.
+      --ssh-public-key-file string        Path to the authorized SSH key for the user
+      --ssh-username string               Name of the user to create on the instance (default "konvoy")
+      --storage-policy string             This is the vSphere storage policy. Set it to "" if you don't want to use a storage policy.
+      --template string                   Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration                  The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --tls-thumb-print string            sha1 thumbprint of the vcenter certificate: openssl x509 -sha1 -fingerprint -in ca.crt -noout
+      --vm-template string                The virtual machine template to use for the workload cluster's virtual machines.
+      --wait                              If true, wait for operations to complete before returning.
+
+Global Flags:
+  -v, --verbose int   Output verbosity

@@ -1,0 +1,13 @@
+Generate one of [catalog-repository]
+
+Usage:
+  nkp generate [command]
+
+Available Commands:
+  catalog-repository Generate the catalog repository layout and its contents
+
+Flags:
+  -h, --help          Help for generate
+  -v, --verbose int   Output verbosity
+
+Use "nkp generate [command] --help" for more information about a command.

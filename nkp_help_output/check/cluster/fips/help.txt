@@ -1,0 +1,37 @@
+The check cluster fips command is used to validate that specific components and services are FIPS
+compliant by checking the signatures of the files against a signed signature file, and checking that services
+are using the certified algorithms.
+
+Examples:
+
+	To use the built-in signature files for supported operating systems:
+
+	nkp check cluster fips
+
+	To use a custom signature file, named "manifest-rhel-84.json.asc":
+
+	nkp check cluster fips \
+		--signature-file manifest-rhel-84.json.asc \
+		--signature-configmap myconfigmap
+
+	The file will be copied to the ConfigMap. To use an existing ConfigMap:
+
+	nkp check cluster fips \
+		--signature-configmap myconfigmap
+
+    The validation will be re-checked against the existing signature data.
+
+Usage:
+  nkp check cluster fips [flags]
+
+Flags:
+  -h, --help                         Help for fips
+      --kubeconfig string            Path to the kubeconfig file for the fips cluster. If unspecified, default discovery rules apply.
+  -n, --namespace string             If present, the namespace scope for this CLI request. (default "default")
+      --output-configmap string      ConfigMap to store result of the fips check. (default "check-cluster-fips-output") (DEPRECATED: This flag will be removed in a future release.)
+      --signature-configmap string   ConfigMap with fips signature data to verify.
+      --signature-file string        File containing fips signature data.
+      --timeout duration             The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 10m0s)
+
+Global Flags:
+  -v, --verbose int   Output verbosity

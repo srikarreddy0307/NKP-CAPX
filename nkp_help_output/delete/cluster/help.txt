@@ -1,0 +1,22 @@
+Delete a Kubernetes cluster
+
+Usage:
+  nkp delete cluster [flags]
+
+Flags:
+      --aws-service-endpoints string     Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
+      --bootstrap-cluster-image string   Container image used to create the bootstrap cluster. Can be an image name or path to a filee.g. ./nkp-v2.16.0/konvoy-bootstrap-image-v2.16.0.tar. If not provided, the default image will be used (default "docker.io/mesosphere/konvoy-bootstrap:v2.16.0")
+  -c, --cluster-name name                Name used to prefix the cluster and all the created resources.
+      --delete-kubernetes-resources      Delete Kubernetes resources on the cluster before deleting that cluster (Services with type LoadBalancer) (default true)
+  -h, --help                             Help for cluster
+      --http-proxy string                HTTP proxy for CAPI controllers
+      --https-proxy string               HTTPS proxy for CAPI controllers
+      --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+  -n, --namespace string                 If present, the namespace scope for this CLI request. (default "default")
+      --no-proxy strings                 No Proxy list for CAPI controllers (default [])
+      --self-managed                     When set to true, the required prerequisites and resources are moved from the self managed cluster before deleting. When set to false, the resources are assumed installed in a management cluster. (default false)
+      --timeout duration                 The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 15m0s)
+  -v, --verbose int                      Output verbosity
+      --wait                             If true, wait for operations to complete before returning. This flag is ignored and will always be 'true' if used with the --self-managed flag. (default true)
+      --with-aws-bootstrap-credentials   Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials   Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.

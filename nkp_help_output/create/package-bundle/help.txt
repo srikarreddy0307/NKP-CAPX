@@ -1,0 +1,12 @@
+Create Operating System package bundle for one of [oracle-9.4, rhel-8.10, rocky-9.6, ubuntu-22.04]
+
+Usage:
+  nkp create package-bundle OSName [flags]
+
+Flags:
+      --artifacts-directory string   Path to a directory for storing OS package bundles. The directory must already exist.
+      --container-image string       A container image to use for building the package bundles
+      --fips                         Creats FIPS compliant packages
+  -h, --help                         Help for package-bundle
+      --kubernetes-version string    kubernetes version used to build packages (default "1.33.2")
+  -v, --verbose int                  Output verbosity

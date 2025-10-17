@@ -1,0 +1,15 @@
+Help provides help for any command in the application.
+Simply type nkp help [path to command] for full details.
+
+Usage:
+  nkp help [-o {yaml|yml|markdown|md|template|htmltemplate}] [command] [flags]
+
+Flags:
+  -h, --help                Help for help
+  -o, --output string       Output format for help
+  -d, --output-dir string   Output for full command tree if --tree=true
+      --template string     template file to use if --format=template or htmltemplate
+  -t, --tree                Generate help for full command tree
+
+Global Flags:
+  -v, --verbose int   Output verbosity

@@ -1,0 +1,26 @@
+Create one of [appdeployment, bootstrap, bundle, capi-components, catalog, catalog-application, catalog-bundle, cluster, image, image-bundle, metadata, nodepool, package-bundle, workspace]
+
+Usage:
+  nkp create [command]
+
+Available Commands:
+  appdeployment       Create an AppDeployment
+  bootstrap           Create bootstrap cluster
+  bundle              Create a bundle containing container images and/or Helm charts
+  capi-components     Create the CAPI components in the cluster
+  catalog-application Create a catalog application or collection in project or workspace namespace
+  catalog-bundle      Bundle up the catalog application(s) including container images & any OCI artifacts
+  cluster             Create a Kubernetes cluster, one of [aks, aws, azure, eks, gcp, nutanix, preprovisioned, vsphere]
+  image               Create Operating System image for one of [nutanix]
+  metadata            Create a infrastructure metadata, one of [nutanix]
+  nodepool            Create a nodepool, one of [aks, aws, azure, eks, gcp, nutanix, preprovisioned, vsphere]
+  package-bundle      Create Operating System package bundle for one of [oracle-9.4, rhel-8.10, rocky-9.6, ubuntu-22.04]
+  workspace           Create a Workspace
+
+Flags:
+  -h, --help   Help for create
+
+Global Flags:
+  -v, --verbose int   Output verbosity
+
+Use "nkp create [command] --help" for more information about a command.

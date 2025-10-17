@@ -1,0 +1,25 @@
+Upgrade a Kubernetes cluster's version to 1.33.2 in Nutanix
+
+Usage:
+  nkp upgrade cluster nutanix [flags]
+
+Flags:
+      --allow-missing-template-keys       If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
+  -c, --cluster-name name                 Name used to prefix the cluster and all the created resources.
+      --control-plane-vm-image string     Name of OS image to use for control plane machines.
+      --dry-run                           Only print the objects that would be created, without creating them.
+  -h, --help                              Help for nutanix
+      --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
+  -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
+  -o, --output string                     Output format. One of: (json, yaml, name, go-template, go-template-file, template, templatefile, jsonpath, jsonpath-as-json, jsonpath-file).
+      --output-directory string           Used with --output=json|yaml. The directory where to output resources to files. The directory must already exist.
+      --show-managed-fields               If true, keep the managedFields when printing objects in JSON or YAML format.
+      --template string                   Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
+      --timeout duration                  The length of time to wait before giving up. Zero means wait forever (e.g. 300s, 30m, 3h). (default 30m0s)
+      --use-context string                Use a specific context in a kubeconfig file.
+      --vm-image string                   Name of OS image to use for all machines.
+      --wait                              If true, wait for operations to complete before returning. (default true)
+      --worker-vm-images stringToString   Names of OS images to use for worker pools. If set, all worker pool names and OS images must be provided. (e.g. --worker-vm-images wpool1=os-image1,wpool2=os-image2) (default [])
+
+Global Flags:
+  -v, --verbose int   Output verbosity
