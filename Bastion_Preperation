@@ -1,3 +1,28 @@
-create a Bastion VM with 250 GB Disk, 8GB Memory, 2 VCPU'S
-install the docker 
+#create a Bastion VM with 250 GB Disk, 8GB Memory, 2 VCPU'S
+
+#install the docker 
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable --now docker
+#verify docker
+docker version
+
+#download the NKP Airgapped bundle
+wget "link" 
+
+#untar the bundle
+tar -zxvf <bundle>
+
+#configure nkp and kubectl cli
+cp -a kubectl /usr/local/bin
+cp -a container-images/nkp /usr/local/bin
+
+#verify
+nkp version
+kubectl version
+
+#download the harbor image bundlle package 
+
+
 
