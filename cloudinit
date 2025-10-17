@@ -1,0 +1,6 @@
+#cloud-config
+chpasswd:
+  list: |
+    root:redhat
+  expire: False
+ssh_pwauth: true
